@@ -1,0 +1,12 @@
+.header-align{
+    margin-top: -21px;
+}
+.custom-toggle {
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    content: "";
+    background: no-repeat center center;
+    background-size: 100% 100%;
+}
