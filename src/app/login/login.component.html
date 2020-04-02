@@ -13,7 +13,7 @@
                 <input (keyup)="validation()" type="password" name="password" [(ngModel)]="password" placeholder="password">
             </div>
             <div style="padding: 5px;padding-right: 64px;">
-                <button (click)="submit()" id="submit" class="btn btn-info" [disabled]="true"
+                <button (click)="submit()" class="btn btn-info" [disabled]="checkDisable"
                     style="margin-left: auto;margin-right: auto;display: block;">
                     Login</button>
                 <!-- <button (click)="validation()">cccc</button> -->

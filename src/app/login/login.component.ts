@@ -10,8 +10,9 @@ export class LoginComponent implements OnInit {
 
   public userNameId = '';
   public password = '';
-  public message = '';
+  // public message = '';
   public checkUer = [];
+  public checkDisable = true;
   // public getUserData = [];
   allUserData: { _id: number; userId: string; pwd: string; }[];
 
@@ -20,10 +21,13 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.allUserData = this.service.userDetailss;
     // console.log(window.localStorage.getItem('login'));
+    console.log(this.checkDisable);
   }
   validation() {
     if (this.userNameId && this.password) {
-      document.getElementById('submit').disabled = false;
+      this.checkDisable = false;
+    } else {
+      this.checkDisable = true;
     }
     // // console.log(this.userNameId);
     // console.log('enter');
