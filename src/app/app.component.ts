@@ -29,8 +29,8 @@ export class AppComponent {
 
   // tslint:disable-next-line:use-lifecycle-interface
   ngOnInit(): void {
-    console.log('+++++ ' + window.location.pathname + ' +++++++++++++++');
-    // console.log(this.loginservice.url() + 'login');
+    // console.log('+++++ ' + window.location.pathname + ' +++++++++++++++');
+    // // console.log(this.loginservice.url() + 'login');
     if (!window.localStorage.getItem('login') && (window.location.pathname !== '/login')) {
       this.isloginRedirect = false;
       window.location.href = (this.loginservice.url() + 'login');
@@ -40,8 +40,8 @@ export class AppComponent {
         window.location.href = this.loginservice.url();
       }
     }
-    console.log(this.isloginRedirect);
-    console.log(window.localStorage.getItem('login'));
+    // console.log(this.isloginRedirect);
+    // console.log(window.localStorage.getItem('login'));
     window.localStorage.getItem('login') !== (undefined || null) ? this.autoLogin() : this.clear();
   }
   autoLogin() {
@@ -58,6 +58,6 @@ export class AppComponent {
 
   // remove just for checking
   checkuserLists() {
-    console.log(this.userLists);
+    // console.log(this.userLists);
   }
 }

@@ -19,20 +19,20 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.allUserData = this.service.userDetailss;
-    console.log(window.localStorage.getItem('login'));
+    // console.log(window.localStorage.getItem('login'));
   }
   validation() {
     if (this.userNameId && this.password) {
       document.getElementById('submit').disabled = false;
     }
-    // console.log(this.userNameId);
-    console.log('enter');
+    // // console.log(this.userNameId);
+    // console.log('enter');
   }
 
   submit() {
     this.checkUer = this.allUserData.filter((x) => (x.userId === this.userNameId) && (x.pwd === this.password));
-    console.log(this.checkUer);
-    console.log(this.checkUer.length);
+    // console.log(this.checkUer);
+    // console.log(this.checkUer.length);
     if (this.checkUer.length > 0) {
       window.localStorage.setItem('login', JSON.stringify(this.checkUer));
       window.location.href = this.service.url();

@@ -7,16 +7,17 @@ export class LoginServiceService {
     { _id: 2, userId: 'asd', pwd: 'asd' },
     { _id: 3, userId: 'pande', pwd: '123456' }
   ];
-
+  public imgLink = '../assets/download.png';
   public productList = [
-      { id: 0, companyName: 'Nokia', image: 'linkPic-Sorce', quality: 1, amount: 10, quantity: 0 },
-      { id: 1, companyName: 'Nokia', image: 'linkPic-Sorce', quality: 2, amount: 10, quantity: 0 },
-      { id: 2, companyName: 'Nokia', image: 'linkPic-Sorce', quality: 5, amount: 10, quantity: 0 }
+      { id: 0, img: this.imgLink, companyName: 'Nokia', image: 'linkPic-Sorce', quality: 1, amount: 10, quantity: 0 },
+      { id: 1, img: this.imgLink, companyName: 'Nokia', image: 'linkPic-Sorce', quality: 2, amount: 10, quantity: 0 },
+      { id: 2, img: this.imgLink, companyName: 'Nokia', image: 'linkPic-Sorce', quality: 5, amount: 10, quantity: 0 }
     ];
 
   constructor() { }
 
   url() {
+    console.log();
     return 'http://localhost:4200/';
   }
 }

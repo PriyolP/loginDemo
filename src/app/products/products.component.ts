@@ -20,7 +20,7 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     // alert('product');
-    // console.log(this.approot.userLists);
+    // // console.log(this.approot.userLists);
     this.productsList = this.loginservice.productList;
     // this.productList = AppComponent.prod
   }
@@ -31,11 +31,11 @@ export class ProductsComponent implements OnInit {
     }
   }
   addCart(quantity, product) {
-    console.log(product);
-    console.log(JSON.parse(window.localStorage.getItem('cart')));
+    // console.log(product);
+    // console.log(JSON.parse(window.localStorage.getItem('cart')));
     // if (JSON.parse(window.localStorage.getItem('cart')).length > 0) { }
     // this.userCart = window.localStorage.get;
-    console.log(quantity);
+    // console.log(quantity);
     if (quantity > 0) {
       this.userCart = {
         userID: JSON.parse(window.localStorage.getItem('login')).id,
