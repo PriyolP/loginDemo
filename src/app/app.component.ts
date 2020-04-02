@@ -9,7 +9,6 @@ import { LoginServiceService } from './login-service.service';
 // seperate components of product list;
 
 // import * as _ from 'lodash';
-// import { Statement } from '@angular/compiler';
 
 @Component({
   selector: 'app-root',
