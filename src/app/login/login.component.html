@@ -1,0 +1,24 @@
+<!-- <p>login works!</p> -->
+<div class="col-md-12" style="padding-top: 15%;">
+    <div class="col-md-3 col-lg-3"></div>
+    <div class="col-md-5 col-lg-5">
+        <form>
+            <div style="padding: 5px;">
+
+                <label class="col-lg-4"> userId: </label>
+                <input (keyup)="validation()" type="text" name="userNameId" [(ngModel)]="userNameId" placeholder="userId" autofocus>
+            </div>
+            <div style="padding: 5px;">
+                <label class="col-lg-4"> password: </label>
+                <input (keyup)="validation()" type="password" name="password" [(ngModel)]="password" placeholder="password">
+            </div>
+            <div style="padding: 5px;padding-right: 64px;">
+                <button (click)="submit()" id="submit" class="btn btn-info" [disabled]="true"
+                    style="margin-left: auto;margin-right: auto;display: block;">
+                    Login</button>
+                <button (click)="validation()">cccc</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-4 col-lg-4"></div>
+</div>

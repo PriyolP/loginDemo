@@ -7,12 +7,14 @@
                     <div class="panel-body">
                         <span class="text-center">Name : {{products.companyName}}</span><br>
                         inStock : {{products.quality}}<br>
+                        Amount : <b>&#2352; {{products.amount}} <small>per pc</small></b> <br>
                         Selected quantity : <input [(ngModel)]='products.quantity'
                             (keyup)='checkQuantity(products,products.quality)' type="number" [min]=0
                             [max]='products.quality'>
 
                     </div>
-                    <button class="btn btn-default"> ADD to Cart </button>
+                    <button class="btn btn-info" (click)="addCart(products.quantity, products)"> ADD to Cart
+                    </button>
                     <!-- selected quantity ; {{products.quantity}}. -->
                 </div>
                 <!-- <div class="panel panel-default">
