@@ -1,0 +1,15 @@
+<p>product works!</p>
+<div class="panel panel-border panel-default">
+    <div class="panel-body">
+        <!-- <img [src]="productList.img" height="90%" width="89%"><br> -->
+        <span class="text-center">Name : {{productList.companyName}}</span><br>
+        inStock : {{productList.quality}}<br>
+        Amount : <b>&#2352; {{productList.amount}} <small>per pc</small></b> <br>
+        Selected quantity : <input type="number" [min]=0
+            [max]='5'>
+
+    </div>
+    <button class="btn btn-info"> ADD to Cart 
+    </button>
+    <!-- selected quantity ; {{productList.quantity}}. -->
+</div>

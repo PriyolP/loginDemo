@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginServiceService } from '../login-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,18 +11,14 @@ export class LoginComponent implements OnInit {
 
   public userNameId = '';
   public password = '';
-  // public message = '';
   public checkUer = [];
   public checkDisable = true;
-  // public getUserData = [];
   allUserData: { _id: number; userId: string; pwd: string; }[];
 
-  constructor(private service: LoginServiceService) { }
+  constructor(private service: LoginServiceService, private router: Router) { }
 
   ngOnInit(): void {
     this.allUserData = this.service.userDetailss;
-    // console.log(window.localStorage.getItem('login'));
-    console.log(this.checkDisable);
   }
   validation() {
     if (this.userNameId && this.password) {
@@ -29,23 +26,16 @@ export class LoginComponent implements OnInit {
     } else {
       this.checkDisable = true;
     }
-    // // console.log(this.userNameId);
-    // console.log('enter');
   }
 
   submit() {
     this.checkUer = this.allUserData.filter((x) => (x.userId === this.userNameId) && (x.pwd === this.password));
-    // console.log(this.checkUer);
-    // console.log(this.checkUer.length);
     if (this.checkUer.length > 0) {
-      window.localStorage.setItem('login', JSON.stringify(this.checkUer));
-      window.location.href = this.service.url();
+      window.sessionStorage.setItem('x-auth', JSON.stringify(this.checkUer));
+      this.router.navigate(['/dashboard']);
     } else {
       alert('please enter valid userId or Password');
     }
-
-    // window.location
-    // window.location.href = this.service.url();
   }
 
 }

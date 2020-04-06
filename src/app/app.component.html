@@ -1,30 +1,8 @@
-<div *ngIf="!isloginRedirect">
-    <router-outlet></router-outlet>
-</div>
-<div *ngIf="isloginRedirect">
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <span class="navbar-brand"> E-Commers </span>
-            </div>
-            <ul class="nav navbar-nav">
-                <!-- <li class="active"><a href="#">Home</a></li> -->
-                <!-- <li><a href="#">Todays Deal</a></li> -->
-                <!-- <li><a href="#">Upload</a></li> -->
-                <li><a href="#">Cart</a></li>
-                <!-- <li><a (click)="checkuserLists()">check</a></li> -->
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <!-- <li *ngIf='!isLogined'><a (click)="clear()" href="#" data-toggle="modal" data-target="#myModal"><span
-                            class="glyphicon glyphicon-user"></span>
-                        Login/Sign Up </a></li> -->
-                <li><a>{{UserName}}</a></li>
-                <li><a (click)="logout()" href="#"><span class="glyphicon glyphicon-log-in"></span>
-                        Logout</a></li>
-            </ul>
-        </div>
-    </nav>
+<!-- <app-header></app-header> -->
+<router-outlet></router-outlet>
+
+<!-- <div *ngIf="isloginRedirect">
     <div>
         <app-products></app-products>
     </div>
-</div> 
+</div>  -->
