@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartComponent implements OnInit {
 
-  public cartProduct: [];
+  public cartProduct = [];
   public userCartTotal = JSON.parse(localStorage.getItem('cartUser'));
   public userID: string;
   public totalCost: number;
