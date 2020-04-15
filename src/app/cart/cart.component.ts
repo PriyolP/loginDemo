@@ -10,7 +10,7 @@ export class CartComponent implements OnInit {
   public cartProduct = [];
   public userCartTotal = JSON.parse(localStorage.getItem('cartUser'));
   public userID: string;
-  public totalCost: number;
+  public totalCost: number=0;
 
   constructor() { }
 
@@ -20,6 +20,7 @@ export class CartComponent implements OnInit {
     // this.cartProduct = JSON.parse(localStorage.getItem('cartUser'));
     console.log(this.cartProduct);
     console.log(this.userID);
+    if(localStorage.getItem('cartUser'))
     for (let cart of JSON.parse(localStorage.getItem('cartUser'))) {
       if (cart.userID === this.userID) {
         this.cartProduct = cart.productitem;
