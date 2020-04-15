@@ -1,14 +1,16 @@
 <div class="panel panel-border panel-default">
     <div class="panel-body">
-        <img [src]="productList.img" height="90%" width="89%"><br>
-        <span class="text-center">Name : {{productList.companyName}}</span><br>
-        inStock : {{productList.quality}}<br>
+        <img [src]="productList.img" height="90%" width="89%" [routerLink]="['/details',productList.id]"><br>
+        <span class="text-center">-Name : {{productList.companyName}}</span><br>
+        inStock : <span *ngIf="productList.quality === 0">Out Of Stock</span> <span
+            *ngIf="productList.quality !== 0">{{productList.quality}}</span><br>
         Amount : <b>&#2352; {{productList.amount}} <small>per pc</small></b> <br>
-        Selected quantity : <input type="number" [min]=0
-            [max]='5'>
+        <span *ngIf="productList.quality !== 0">
+            Selected quantity : <input type="number" [(ngModel)]="productList.quantity" [min]=0 [max]="productList.quality"
+            (keyup)='checkQuantity(productList,productList.quality)'></span>
 
     </div>
-    <button class="btn btn-info"> ADD to Cart 
+    <button class="btn btn-info" (click)="AddToCart(productList)"> ADD to Cart
     </button>
-    <!-- selected quantity ; {{productList.quantity}}. -->
+    selected quantity ; {{productList.quantity}}.
 </div>

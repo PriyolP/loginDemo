@@ -4,11 +4,12 @@
             <span class="navbar-brand"> E-Commers </span>
         </div>
         <ul class="nav navbar-nav">
-            <li><a href="#">Cart</a></li>
+            <li><a routerLink="/dashboard">Dashboard</a></li>
+            <li><a routerLink="/cart">Cart</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a>{{userName}}</a></li>
-            <li><a (click)="logout()" href="#"><span class="glyphicon glyphicon-log-in"></span>
+            <li><a (click)="logout()" ><span class="glyphicon glyphicon-log-in"></span>
                     Logout</a></li>
         </ul>
     </div>

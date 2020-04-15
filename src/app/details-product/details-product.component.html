@@ -1,0 +1,46 @@
+<!-- <p>details-product works!</p> -->
+<app-header></app-header>
+<div style="padding: 50px;">
+    <div class="col-md-12">
+        <div class="panel-group">
+            <div class="panel panel-border panel-default">
+                <div class="panel-header">
+                    <!-- {{productDetails|json}} -->
+                    <div class="col-md-3" style="padding-top: 2%;">
+                        <button class="btn btn-danger" routerLink="/dashboard"> back </button>
+                    </div>
+                    <div class="col-md-9">
+                        <h1 class="text-center">{{productDetails['companyName']|| '-'}}</h1>
+                        <hr>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="col-md-5">
+                        <img [src]="productDetails['img']">
+                    </div>
+                    <div class="col-md-7">
+                        <table class="table">
+                            <tr>
+                                <td> Comapany Name : </td>
+                                <td> {{productDetails['companyName']}} </td>
+                            </tr>
+                            <tr>
+                                <td> If image Not Found : </td>
+                                <td> {{productDetails['image']}} </td>
+                            </tr>
+                            <tr>
+                                <td> In Stock : </td>
+                                <td> {{productDetails['quality']}} </td>
+                            </tr>
+                            <tr>
+                                <td> Cost : </td>
+                                <td> &#2352;. {{productDetails['amount']}} <small>per pc.</small> </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

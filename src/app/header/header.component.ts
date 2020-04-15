@@ -17,9 +17,7 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit(): void { 
-    console.log(sessionStorage.getItem('x-auth'));
     this.userName = JSON.parse(window.sessionStorage.getItem('x-auth'))[0].userId;
-    console.log(this.userName);
   }
 
   logout() {
