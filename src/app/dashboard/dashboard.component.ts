@@ -40,6 +40,9 @@ export class DashboardComponent implements OnInit {
               }
             }
           }
+          if(u.productitem.length === 0 ){
+              u.productitem.push(product);
+            }
         } else {
           userNumber++;
           if (userNumber === arr.length) {
