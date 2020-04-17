@@ -16,4 +16,41 @@ export class ProductServiceService {
   ];
   
   constructor() { }
+
+  addcartUsers(product, userCart) {
+    let arr=[], productLength: number, i: number = 0, userNumber = 0;
+    if (window.localStorage.getItem('cartUser')) {
+      arr = JSON.parse(window.localStorage.getItem('cartUser'));
+      for (var u of arr) {
+        if (u.userID === product.userID) {
+          productLength = u.productitem.length;
+          for (var p of u.productitem) {
+            if (p.id === product.id) { 
+              // alert('same value');
+              p.quantity = product.quantity;
+
+            } else {
+              i++;
+              if (productLength === i) {
+                u.productitem.push(product);
+              }
+            }
+          }
+          if(u.productitem.length === 0 ){
+              u.productitem.push(product);
+            }
+        } else {
+          userNumber++;
+          if (userNumber === arr.length) {
+            arr.push(userCart);
+            window.localStorage.setItem('cartUser', JSON.stringify(arr));
+          }
+        }
+      }
+      window.localStorage.setItem('cartUser', JSON.stringify(arr));
+      arr = [];
+    } else {
+      window.localStorage.setItem('cartUser', JSON.stringify([userCart]));
+    }
+  }
 }

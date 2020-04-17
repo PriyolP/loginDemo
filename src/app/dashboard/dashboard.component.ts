@@ -18,44 +18,12 @@ export class DashboardComponent implements OnInit {
   }
 
   addCart(item: string) {
-    let arr, productLength: number, i: number = 0, userNumber = 0;
     let product = JSON.parse(item);
-    // product.userID = this.user[0]._id;
+    product.userID = this.user[0]._id;
     let userCart: object = { userID: this.user[0]._id, productitem: [product] };
 
-    if (window.localStorage.getItem('cartUser')) {
-      arr = JSON.parse(window.localStorage.getItem('cartUser'));
-      for (var u of arr) {
-        if (u.userID === this.user[0]._id) {
-          productLength = u.productitem.length;
-          for (var p of u.productitem) {
-            if (p.id === product.id) {
-              // alert('same value');
-              p.quantity = product.quantity;
+    this.service.addcartUsers(product, userCart)
 
-            } else {
-              i++;
-              if (productLength === i) {
-                u.productitem.push(product);
-              }
-            }
-          }
-          if(u.productitem.length === 0 ){
-              u.productitem.push(product);
-            }
-        } else {
-          userNumber++;
-          if (userNumber === arr.length) {
-            arr.push(userCart);
-            window.localStorage.setItem('cartUser', JSON.stringify(arr));
-          }
-        }
-      }
-      window.localStorage.setItem('cartUser', JSON.stringify(arr));
-      arr = [];
-    } else {
-      window.localStorage.setItem('cartUser', JSON.stringify([userCart]));
-    }
     userCart = {};
   }
 
