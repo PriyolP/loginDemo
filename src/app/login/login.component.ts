@@ -11,7 +11,6 @@ export class LoginComponent implements OnInit {
 
   public userNameId = '';
   public password = '';
-  public checkUer = [];
   public checkDisable = true;
   allUserData: { _id: number; userId: string; pwd: string; }[];
 
@@ -29,9 +28,8 @@ export class LoginComponent implements OnInit {
   }
 
   submit() {
-    this.checkUer = this.allUserData.filter((x) => (x.userId === this.userNameId) && (x.pwd === this.password));
-    if (this.checkUer.length > 0) {
-      window.sessionStorage.setItem('x-auth', JSON.stringify(this.checkUer));
+    let login = this.service.loginSucess(this.userNameId, this.password);
+    if (login) {
       this.router.navigate(['/dashboard']);
     } else {
       alert('please enter valid userId or Password');
