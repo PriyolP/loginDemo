@@ -5,7 +5,7 @@
         <hr>
         <div class="panel-group">
             <div class="panel panel-border panel-default">
-
+                <div *ngIf="cartProduct.length === 0">No item(s) selected</div>
                 <div *ngFor="let product of cartProduct" style="padding: 10px;">
                     <!-- {{product|json}}<br> -->
                     <div class="panel-body">
@@ -41,7 +41,7 @@
                             Total Product: {{cartProduct.length}}
                         </div>
                         <div>
-                            Total Amount: {{totalCost}} null
+                            Total Amount: {{totalCost}}
                         </div>
                     </div>
                 </div>
