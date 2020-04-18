@@ -44,7 +44,6 @@ export class ProductServiceService {
           userNumber++;
           if (userNumber === arr.length) {
             arr.push(userCart);
-            this.setItem(arr);
           }
         }
       }
