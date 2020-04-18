@@ -15,11 +15,11 @@ export class CartComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log('errrrrrrrrrrrrrrrr');
+    // console.log('errrrrrrrrrrrrrrrr');
     this.userID = JSON.parse(sessionStorage.getItem('x-auth'))[0]._id;
     // this.cartProduct = JSON.parse(localStorage.getItem('cartUser'));
-    console.log(this.cartProduct);
-    console.log(this.userID);
+    // console.log(this.cartProduct);
+    // console.log(this.userID);
     if(localStorage.getItem('cartUser'))
     for (let cart of JSON.parse(localStorage.getItem('cartUser'))) {
       if (cart.userID === this.userID) {
@@ -41,10 +41,10 @@ export class CartComponent implements OnInit {
 
 
   remove(value:object) {
-    console.log(value);
+    // console.log(value);
     for (let [i, product] of this.cartProduct.entries()) {
-      console.log(i);
-      console.log(product);
+      // console.log(i);
+      // console.log(product);
       if (value['id'] === product['id']) {
         this.cartProduct.splice(i, 1);
       }

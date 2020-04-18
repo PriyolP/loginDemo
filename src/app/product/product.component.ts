@@ -7,22 +7,29 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 })
 export class ProductComponent implements OnInit {
 
-  @Input() productList;
+  @Input() id: string;
+  @Input() image: string;
+  @Input() companyName: string;
+  @Input() quality: number;
+  @Input() amount: number;
+  @Input() quantity: number;
+
   @Output() cart = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void {
     // console.log(this.productList);
+    this.quantity = 0;
   }
 
-  checkQuantity( product, quantity) {
-    if(product.quantity > quantity) {product.quantity = quantity}
+  checkQuantity() {
+    if (this.quantity > this.quality) { this.quantity = this.quality }
   }
 
-  AddToCart(product) {
-    if(product.quantity > 0)
-      this.cart.emit(JSON.stringify(product));
+  AddToCart() {
+    if (this.quantity > 0)
+      this.cart.emit({id:this.id, quantity:this.quantity});
   }
-  
+
 }

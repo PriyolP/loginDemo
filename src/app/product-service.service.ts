@@ -19,8 +19,9 @@ export class ProductServiceService {
 
   addcartUsers(product, userCart) {
     let arr=[], productLength: number, i: number = 0, userNumber = 0;
-    if (window.localStorage.getItem('cartUser')) {
-      arr = JSON.parse(window.localStorage.getItem('cartUser'));
+    let getItems = window.localStorage.getItem('cartUser')
+    if (getItems) {
+      arr = JSON.parse(getItems);
       for (var u of arr) {
         if (u.userID === product.userID) {
           productLength = u.productitem.length;
@@ -43,14 +44,18 @@ export class ProductServiceService {
           userNumber++;
           if (userNumber === arr.length) {
             arr.push(userCart);
-            window.localStorage.setItem('cartUser', JSON.stringify(arr));
+            this.setItem(arr);
           }
         }
       }
-      window.localStorage.setItem('cartUser', JSON.stringify(arr));
+      this.setItem(arr);
       arr = [];
     } else {
-      window.localStorage.setItem('cartUser', JSON.stringify([userCart]));
+      this.setItem([userCart]);
     }
+  }
+
+  setItem(arr) {
+    window.localStorage.setItem('cartUser', JSON.stringify(arr));
   }
 }

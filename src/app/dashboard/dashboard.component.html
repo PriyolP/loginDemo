@@ -6,7 +6,8 @@
         <div *ngFor="let products of productsList" class="col-md-3 col-xs-6 col-sm-3 col-lg-3">
             <div class="panel-group">
                 <!-- {{ products | json }} -->
-                <app-product  (cart)="addCart($event)" [productList]="products"></app-product>
+                <app-product  (cart)="addCart($event)" [id]="products.id"
+                [image]="products.img" [companyName]="products.companyName" [quality]="products.quality" [amount]="products.amount" [quantity]="products.quantity"></app-product>
             </div>
         </div>
     </div>

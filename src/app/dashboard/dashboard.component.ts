@@ -17,9 +17,11 @@ export class DashboardComponent implements OnInit {
     this.user = JSON.parse(sessionStorage.getItem('x-auth'));
   }
 
-  addCart(item: string) {
-    let product = JSON.parse(item);
-    product.userID = this.user[0]._id;
+  addCart(item: object) {
+    let product = this.productsList.find(function(x){if(x.id === item['id']){return x}});
+    product['quantity'] = item['quantity'];
+    product['userID'] = this.user[0]._id;
+
     let userCart: object = { userID: this.user[0]._id, productitem: [product] };
 
     this.service.addcartUsers(product, userCart)

@@ -20,12 +20,12 @@ export class DetailsProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.sub = this._activetedrouter.paramMap.subscribe(params => {
-      console.log(params);
+      // console.log(params);
       this.id = Number(params.get('id'));
       let product = this._serviceProduct.productList;
       this.productDetails = product.find(p => p.id === this.id);
     });
-    console.log(this.productDetails);
+    // console.log(this.productDetails);
   }
 
 }
